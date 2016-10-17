@@ -1,48 +1,15 @@
 #pragma once
 
-struct Object
+enum roomFlag : uint8_t
 {
-	const uint8_t* sprite;
-	uint8_t data;
-	uint8_t room, x, y;
-	int8_t movex, movey; 
-}
+	none = B00000000,
+	mirror = B0000001,
+};
 
-class Player
+typedef struct Room
 {
-public:
-	int8_t room,x,y;
-	uint8_t holding; 
+	const uint8_t* map;
+	//uint8_t flags;
+	uint8_t north,east,south,west;
+};
 
-	void reset()
-	{
-		x = 64;
-		y = 34;
-		room = 0;
-		holding = 0;
-	}
-}
-
-struct Room
-{
-	const byte* layout;
-	uint8_t data;
-	uint8_t roomLeft, roomRight, roomUp, roomDown;
-}
-
-enum class Objects : uint8_t
-{
-	None,
-	RedDragon,
-	YellowDragon,
-	GreenDragon,
-	Sword,
-	Bridge,
-	YelloWkey,
-	WhiteKey,
-	BlackKey,
-	Bat,
-	Dot,
-	Cup,	//I can't spell chalise consistently.
-	Magnet
-}

@@ -1,9 +1,15 @@
-#include <Arduino.h>
-#include <Arduboy.h>
+/*
 
-Arduboy ab;
-Game game(ab);
-  
+*/
+#include <Arduboy.h>
+#include "system.h"
+#include "rooms.h"
+#include "sprites.h"
+#include "player.h"
+
+System ab = System();
+Player player = Player(ab);
+
 int main(void)
 {
 	init();
@@ -11,39 +17,37 @@ int main(void)
 	#ifdef USBCON
     	USBDevice.attach();
 	#endif
- 
+
 	ab.begin();
-  
-  	bool ready = false;
-  	uint8_t mode = 0;
 
-  	while(!ready)	//titlescreen
-  	{
+	bool ready = false;
+	uint8_t map = 0;
+
+	while(!ready)
+	{
+
 		if(ab.nextFrame())
-	    {
-	  		if ab.pressed(BUTTON_UP)	{	if (mode>0) 	mode--;	}
-	  		if ab.pressed(BUTTON_DOWN)	{	if (mode<10) 	mode++;	}
+		{
+			/*
+	  		if (ab.pressed(BUTTON_UP))	 {	if (map>0) 	map--;	}
+	  		if (ab.pressed(BUTTON_DOWN)) {	if (map<10) map++;	}
+			*/
+			ab.fillScreen(1);
+			ab.drawPlayfield(mapGraphics[map]);
+			ab.display();
 
-	  		if ab.pressed(BUTTON_A)		{	ready = true;	}
+			map++;
+			delay(1000);
+		}
+	}
 
-	  		ab.clear();
-	  		ab.print(mode);
-	  		ab.display();
-  		}
-
-  	}
-
-	game.reset(mode);
-
-	while(1)	//game
+	while(1)
 	{
 		if(ab.nextFrame())
-	    {
-	      ab.clear();
-	      
-	      game.step();
-	      
-	      ab.display();
-	    }
+		{
+			ab.fillScreen(1);
+			ab.drawPlayfield(mapGraphics[map]);
+			ab.display();
+		}
 	}
 }
