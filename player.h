@@ -10,6 +10,7 @@ private:
 
 	int16_t x,y;
 	uint8_t room;
+	uint8_t holding;
 
 	getPF() 
 	{

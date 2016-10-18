@@ -82,15 +82,15 @@ static const PROGMEM uint8_t rmPath3[] =
 	B00000000,B00000000,
 	B00000000,B00000000,
 	B00000000,B00000000,
-	B11111111,B11100111,
+	B11111111,B11111111,
 };
 
 uint8_t *mapGraphics[] = 
 {
-	rmBlank,rmBlankTop,rmBlankLow,rmCastle,rmPath1,rmPath2
+	rmBlank,rmBlankTop,rmBlankLow,rmCastle,rmPath1,rmPath2,rmPath3
 };
 
-static const PROGMEM Room rooms[] = 
+static const PROGMEM Room rooms[] = 	//hold my beer, i've got this
 {
 	{	rmBlank,	0,0,0,0		},	//0 - null zone!
 	{	rmCastle,	0,0,2,0		},	//1 - start castle

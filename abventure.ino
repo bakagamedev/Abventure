@@ -4,6 +4,7 @@
 #include <Arduboy.h>
 #include "system.h"
 #include "rooms.h"
+#include "items.h"
 #include "sprites.h"
 #include "player.h"
 

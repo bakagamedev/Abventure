@@ -13,3 +13,8 @@ typedef struct Room
 	uint8_t north,east,south,west;
 };
 
+typedef struct Object
+{
+	const uint8_t sprite;
+	uint8_t x,y,room;
+}
