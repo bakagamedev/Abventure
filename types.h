@@ -17,4 +17,4 @@ typedef struct Object
 {
 	const uint8_t sprite;
 	uint8_t x,y,room;
-}
+};

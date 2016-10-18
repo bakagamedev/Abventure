@@ -3,6 +3,7 @@
 */
 #include <Arduboy.h>
 #include "system.h"
+#include "game.h"
 #include "rooms.h"
 #include "items.h"
 #include "sprites.h"
@@ -10,6 +11,7 @@
 
 System ab = System();
 Player player = Player(ab);
+Game game = Game(ab,player);
 
 int main(void)
 {
@@ -46,9 +48,7 @@ int main(void)
 	{
 		if(ab.nextFrame())
 		{
-			ab.fillScreen(1);
-			ab.drawPlayfield(mapGraphics[map]);
-			ab.display();
+			game.frame();
 		}
 	}
 }
