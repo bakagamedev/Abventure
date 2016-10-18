@@ -96,6 +96,12 @@ class System : public Arduboy
 			}
 		}
 
+		bool playFieldCollision(const uint8_t * PF,const int16_t x,const int16_t y)
+		{
+			//cludge stub
+			return getPixel(x,y);
+		}
+
   /*
 		GameState getState(void) const
 		{
